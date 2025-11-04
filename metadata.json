@@ -1,0 +1,5 @@
+{
+  "name": "2025 ATP Tournament Explorer",
+  "description": "An interactive globe visualizing the 2025 ATP tournament schedule, with detailed tournament brackets.",
+  "requestFramePermissions": []
+}
