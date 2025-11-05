@@ -1,20 +1,6 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# About this App
 
-This contains everything you need to run your app locally.
+I created this application for my son, a tennis fanatic, in the hope of building geographic knowledge and an understanding of how tennis can connect us all. The application was initially built using Google AI Studio. 
 
-View your app in AI Studio: https://ai.studio/apps/drive/1UC-W7rv-iaYfR6tIiO4Ecwc00kWVvYC3
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+The application is hosted via GitHub Pages and available @ https://tnriley.github.io/2025-ATP-Tournament-Explorer/
