@@ -83,6 +83,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ selectedTournament }) => {
       <button
         onClick={() => setIsOpen(true)}
         className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform transform hover:scale-110 z-50"
+        aria-label="Open AI Assistant"
       >
         <BotIcon className="w-8 h-8" />
       </button>
@@ -94,19 +95,19 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ selectedTournament }) => {
       <header className="flex items-center justify-between p-4 border-b border-gray-700">
         <div className="flex items-center space-x-2">
             <BotIcon className="w-6 h-6 text-green-400" />
-            <h3 className="text-lg font-semibold">AI Assistant</h3>
+            <h3 className="text-lg font-semibold text-white">AI Assistant</h3>
         </div>
-        <button onClick={() => setIsOpen(false)} className="p-1 rounded-full hover:bg-gray-700"><CloseIcon className="w-5 h-5"/></button>
+        <button onClick={() => setIsOpen(false)} className="p-1 rounded-full text-gray-400 hover:bg-gray-700"><CloseIcon className="w-5 h-5"/></button>
       </header>
       
       <div className="flex items-center justify-center p-2 bg-gray-900/50 space-x-4">
-        <span className="text-sm font-medium">Mode:</span>
+        <span className="text-sm font-medium text-gray-200">Mode:</span>
         <div className="flex items-center space-x-2 p-1 bg-gray-700 rounded-full">
-            <button onClick={() => setIsThinkingMode(false)} className={`px-3 py-1 text-xs rounded-full flex items-center space-x-1 ${!isThinkingMode ? 'bg-green-500 text-white' : 'text-gray-300'}`}>
+            <button onClick={() => setIsThinkingMode(false)} className={`px-3 py-1 text-xs rounded-full flex items-center space-x-1 transition-colors ${!isThinkingMode ? 'bg-green-500 text-white' : 'text-gray-300 hover:bg-gray-600'}`}>
                 <SearchIcon className="w-4 h-4" />
                 <span>Grounding</span>
             </button>
-            <button onClick={() => setIsThinkingMode(true)} className={`px-3 py-1 text-xs rounded-full flex items-center space-x-1 ${isThinkingMode ? 'bg-purple-500 text-white' : 'text-gray-300'}`}>
+            <button onClick={() => setIsThinkingMode(true)} className={`px-3 py-1 text-xs rounded-full flex items-center space-x-1 transition-colors ${isThinkingMode ? 'bg-purple-500 text-white' : 'text-gray-300 hover:bg-gray-600'}`}>
                 <BrainIcon className="w-4 h-4" />
                 <span>Thinking</span>
             </button>
@@ -116,7 +117,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ selectedTournament }) => {
       <div className="flex-1 p-4 overflow-y-auto space-y-4">
         {messages.map((msg, index) => (
           <div key={index} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-xs md:max-w-sm px-4 py-2 rounded-2xl ${msg.sender === 'user' ? 'bg-green-600 rounded-br-lg' : 'bg-gray-700 rounded-bl-lg'}`}>
+            <div className={`max-w-xs md:max-w-sm px-4 py-2 rounded-2xl ${msg.sender === 'user' ? 'bg-green-600 text-white rounded-br-lg' : 'bg-gray-700 text-white rounded-bl-lg'}`}>
               <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
                {msg.sources && msg.sources.length > 0 && (
                 <div className="mt-2 pt-2 border-t border-gray-600">
@@ -153,7 +154,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ selectedTournament }) => {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={isThinkingMode ? "Ask a complex question..." : "Ask about tournaments, players..."}
-          className="flex-1 bg-gray-700 border border-gray-600 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="flex-1 bg-gray-700 border border-gray-600 rounded-full px-4 py-2 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500"
           disabled={isLoading}
         />
         <button onClick={handleSend} disabled={isLoading || !input.trim()} className="bg-green-500 p-3 rounded-full text-white disabled:bg-gray-600 hover:bg-green-600 transition-colors">

@@ -1,11 +1,10 @@
+
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Globe from './components/Globe';
 import TournamentsPanel from './components/TournamentsPanel';
 import GlobeControls from './components/GlobeControls';
 import { Tournament } from './types';
-import { TennisBallIcon } from './components/Icons';
 import { tournaments } from './data/tournaments';
-import AIAssistant from './components/AIAssistant';
 
 const App: React.FC = () => {
   const [selectedTournament, setSelectedTournament] = useState<Tournament | null>(null);
@@ -30,9 +29,6 @@ const App: React.FC = () => {
 
   const handleTournamentSelect = (tournament: Tournament | null) => {
     setSelectedTournament(tournament);
-    if (tournament) {
-      setSelectedMonth(null); // Clear month selection
-    }
   };
 
   const handleMonthSelect = (month: number | null) => {
@@ -76,11 +72,10 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col h-screen w-screen bg-gray-900 text-white font-sans overflow-hidden">
-      <header className="absolute top-0 left-0 w-full p-4 z-30 bg-gradient-to-b from-gray-900/80 to-transparent pointer-events-none">
-        <div className="flex items-center space-x-3">
-          <TennisBallIcon className="w-8 h-8 text-green-400" />
+      <header className="absolute top-0 left-0 w-full p-4 z-30 bg-gradient-to-b from-black/20 to-transparent flex justify-between items-start pointer-events-none">
+        <div className="flex items-center">
           <h1 className="text-2xl font-bold tracking-tight text-white">
-            2025 ATP Tour Globe
+            2025 ATP Tour
           </h1>
         </div>
       </header>
@@ -88,9 +83,11 @@ const App: React.FC = () => {
       <main className="flex flex-col md:flex-row flex-1 h-full pt-16">
         <div className="h-1/2 md:h-full relative flex-grow overflow-hidden">
            <Globe 
-            pinLocation={selectedTournament?.location}
+            // Fix: Pass the entire selectedTournament object to pinLocation to resolve a logical error in the Globe component.
+            pinLocation={selectedTournament}
             selectedMonth={selectedMonth}
             tournaments={tournaments}
+            onTournamentSelect={handleTournamentSelect}
             />
            <GlobeControls 
             selectedMonth={selectedMonth}
@@ -113,7 +110,6 @@ const App: React.FC = () => {
           <TournamentsPanel onTournamentSelect={handleTournamentSelect} selectedTournament={selectedTournament} />
         </div>
       </main>
-      <AIAssistant selectedTournament={selectedTournament} />
     </div>
   );
 };

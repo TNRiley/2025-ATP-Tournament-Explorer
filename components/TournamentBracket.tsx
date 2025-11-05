@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tournament, Match, Player } from '../types';
 import MatchDetailsModal from './MatchDetailsModal';

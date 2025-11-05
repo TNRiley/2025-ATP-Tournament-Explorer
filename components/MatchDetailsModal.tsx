@@ -23,12 +23,12 @@ const MatchDetailsModal: React.FC<MatchDetailsModalProps> = ({ match, onClose })
         </div>
         <div className="space-y-3">
             <div className={`p-3 rounded ${match.winner === match.player1.name ? 'bg-green-500/20' : 'bg-gray-700'}`}>
-                <p className="font-semibold text-lg">{match.player1.name} {match.player1.seed ? `(${match.player1.seed})` : ''}</p>
+                <p className="font-semibold text-lg text-white">{match.player1.name} {match.player1.seed ? `(${match.player1.seed})` : ''}</p>
                 <p className="text-sm text-gray-400">{match.player1.country}</p>
             </div>
             <div className="text-center font-bold text-gray-400">VS</div>
              <div className={`p-3 rounded ${match.winner === match.player2.name ? 'bg-green-500/20' : 'bg-gray-700'}`}>
-                <p className="font-semibold text-lg">{match.player2.name} {match.player2.seed ? `(${match.player2.seed})` : ''}</p>
+                <p className="font-semibold text-lg text-white">{match.player2.name} {match.player2.seed ? `(${match.player2.seed})` : ''}</p>
                 <p className="text-sm text-gray-400">{match.player2.country}</p>
             </div>
         </div>

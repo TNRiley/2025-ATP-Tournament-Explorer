@@ -34,11 +34,11 @@ const TournamentsPanel: React.FC<TournamentsPanelProps> = ({ onTournamentSelect,
     <div className="flex flex-col h-full bg-gray-900 text-gray-200">
       <header className="p-4 border-b border-gray-700 flex items-center">
         {view === 'bracket' && (
-          <button onClick={handleGoBack} className="mr-4 p-2 rounded-full hover:bg-gray-700 transition-colors">
+          <button onClick={handleGoBack} className="mr-4 p-2 rounded-full text-gray-200 hover:bg-gray-700 transition-colors">
             <BackArrowIcon className="w-5 h-5" />
           </button>
         )}
-        <h2 className="text-xl font-semibold">
+        <h2 className="text-xl font-semibold text-white">
           {view === 'list' ? 'ATP Tournaments 2025' : selectedTournament?.name}
         </h2>
       </header>

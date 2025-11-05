@@ -68,7 +68,7 @@ const TournamentsTable: React.FC<TournamentsTableProps> = ({ tournaments, onTour
   return (
     <div className="w-full">
       <table className="min-w-full text-sm text-left">
-        <thead className="bg-gray-800 sticky top-0 z-10">
+        <thead className="bg-gray-800 sticky top-0 z-10 text-gray-400">
           <tr>
             <th scope="col" className="px-4 py-3 cursor-pointer" onClick={() => handleSort('name')}>
               <div className="flex items-center">
@@ -103,7 +103,7 @@ const TournamentsTable: React.FC<TournamentsTableProps> = ({ tournaments, onTour
                         <CheckmarkIcon className="w-5 h-5 mr-2 text-green-400 flex-shrink-0" title="Completed"/>
                     )}
                     <div>
-                        <div className="font-medium">{tournament.name}</div>
+                        <div className="font-medium text-white">{tournament.name}</div>
                         <div className="text-xs text-gray-400">{tournament.locationName}</div>
                     </div>
                 </div>

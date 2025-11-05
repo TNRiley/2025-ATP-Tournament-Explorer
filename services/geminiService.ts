@@ -10,9 +10,10 @@ if (!API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: API_KEY });
 
+// FIX: Updated `GroundingChunk` to make `uri` and `title` optional to match the type from the Gemini API response.
 interface GroundingChunk {
-  web?: { uri: string; title: string; };
-  maps?: { uri: string; title: string; };
+  web?: { uri?: string; title?: string; };
+  maps?: { uri?: string; title?: string; };
 }
 
 interface GeminiResponse {
